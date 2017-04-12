@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:APP_Commerce.Infrastructure;assembly=APP_Commerce"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="APP_Commerce.App">
+	<Application.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="MainColor">#2C3E50</Color>
+            <Color x:Key="FontColor">#ECF0F1</Color>
+            <Color x:Key="MenuFontColor">#A5F5F2</Color>
+            <Color x:Key="AccentColor1">#E74C3C</Color>
+            <Color x:Key="AccentColor2">#3498DB</Color>
+            <Color x:Key="BackgroundColor">#2980B9</Color>
+            <!-- Locator -->
+            <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
+            <!-- DataTemplate -->
+            <DataTemplate x:Key="ProductItemTemplate">
+                <ViewCell>
+                    <Grid Padding="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image
+                              Source="{Binding ImageFullPath}"
+                              VerticalOptions="Start"
+                              WidthRequest="100"
+                              HeightRequest="100"/>
+                        <StackLayout Grid.Column="1">
+                            <Label
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Description}"/>
+                            <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Price, StringFormat='Price: {0:C2}'}"/>
+                            <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Stock, StringFormat='Stock: {0:N2}'}"/>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="CustomerItemTemplate">
+                <ViewCell>
+                    <Grid Padding="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <controls:CircleImage 
+                              Source="{Binding PhotoFullPath}" 
+                              Aspect="AspectFill"
+                              WidthRequest="100"
+                              HeightRequest="100">
+                        </controls:CircleImage>
+                        <StackLayout Grid.Column="1">
+                            <Label
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding FullName}"/>
+                            <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding UserName, StringFormat='Email: {0}'}"/>
+                            <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Address, StringFormat='Direccion: {0}'}"/>
+                            <Label
+                VerticalOptions="Center"
+                TextColor="{StaticResource FontColor}"
+                Text="{Binding Phone, StringFormat='Telefono: {0}'}"/>
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

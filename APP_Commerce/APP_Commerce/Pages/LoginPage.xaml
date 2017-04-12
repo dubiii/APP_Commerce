@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APP_Commerce.Pages.LoginPage"
+             BackgroundColor="{StaticResource MainColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="E-Commerce">
+    <StackLayout Padding="10" Spacing="20" BindingContext="{Binding newLogin}">
+        <StackLayout Orientation="Vertical">
+            <Label
+                Text="E-Commerce"
+                TextColor="{StaticResource FontColor}"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+            </Label>
+            <Image Source="ic_launcher.png"
+               WidthRequest="60"
+               HeightRequest="60"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+
+            </Image>
+            <Entry Placeholder="Usuario"
+                   x:Name="Usuario"
+                   Keyboard="Email"
+                   Text="{Binding User, Mode=TwoWay}"
+                   BackgroundColor="{StaticResource BackgroundColor}"
+                   TextColor="{StaticResource FontColor}">
+            </Entry>
+            <Entry Placeholder="Contraseña"
+                   IsPassword="True"
+                   x:Name="Password"
+                   Text="{Binding Password, Mode=TwoWay}"
+                   BackgroundColor="{StaticResource BackgroundColor}"
+                   TextColor="{StaticResource FontColor}">
+            </Entry>
+            <Button Text="Ingresar"
+                    TextColor="{StaticResource AccentColor1}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Command="{Binding LoginCommand}">
+
+            </Button>
+            <ActivityIndicator IsRunning="{Binding IsRunning}"></ActivityIndicator>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Recordar Usuario"
+                       TextColor="{StaticResource FontColor}"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Center"></Label>
+                <Switch  HorizontalOptions="End"
+                         VerticalOptions="Center"
+                         IsToggled="{Binding IsRemembered, Mode=TwoWay}">
+
+                </Switch>
+            </StackLayout>
+            <Label Text="Recuperar Contraseña"
+                       TextColor="{StaticResource AccentColor1}"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"></Label>
+        </StackLayout>
+        <BoxView HeightRequest="1" Color="{StaticResource MainColor}"></BoxView>
+    </StackLayout>
+</ContentPage>
