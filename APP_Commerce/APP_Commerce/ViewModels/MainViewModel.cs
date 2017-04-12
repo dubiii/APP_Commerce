@@ -29,6 +29,10 @@ namespace APP_Commerce.ViewModels
         public LoginViewModel newLogin { get; set; }
 
         public UserViewModel userLogged { get; set; }
+
+        public CustomerItemViewModel CurrentCustomer { get; set; }
+
+
         public string ProductsFilter
         {
             set
@@ -63,8 +67,6 @@ namespace APP_Commerce.ViewModels
                     {
                         //LoadLocalCustomers();
                     }
-
-
                 }
             }
             get
@@ -100,6 +102,7 @@ namespace APP_Commerce.ViewModels
             Customers = new ObservableCollection<CustomerItemViewModel>();
             newLogin = new LoginViewModel();
             userLogged = new UserViewModel();
+            CurrentCustomer = new CustomerItemViewModel();
             dataService = new DataService();
             apiService = new ApiService();
             netService = new NetService();
@@ -273,6 +276,12 @@ namespace APP_Commerce.ViewModels
 
             reloadCustomers(customers);
         }
+
+        public void setCurrentCustomer(CustomerItemViewModel customerItemViewModel)
+        {
+            CurrentCustomer = customerItemViewModel;
+        }
+
 
 
         #endregion

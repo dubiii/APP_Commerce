@@ -7,11 +7,11 @@
 	<Application.Resources>
 
         <ResourceDictionary>
-            <Color x:Key="MainColor">#2C3E50</Color>
-            <Color x:Key="FontColor">#ECF0F1</Color>
-            <Color x:Key="MenuFontColor">#A5F5F2</Color>
-            <Color x:Key="AccentColor1">#E74C3C</Color>
-            <Color x:Key="AccentColor2">#3498DB</Color>
+            <Color x:Key="MainColor">#26373F</Color>
+            <Color x:Key="FontColor">#84929B</Color>
+            <Color x:Key="MenuFontColor">#F8F4F3</Color>
+            <Color x:Key="AccentColor1">#B6B492</Color>
+            <Color x:Key="AccentColor2">#605C4C</Color>
             <Color x:Key="BackgroundColor">#2980B9</Color>
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"></infra:InstanceLocator>
@@ -48,7 +48,10 @@
             </DataTemplate>
             <DataTemplate x:Key="CustomerItemTemplate">
                 <ViewCell>
-                    <Grid Padding="8">
+                    <Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CustomerDetailCommand}"/>
+                        </Grid.GestureRecognizers>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -81,6 +84,7 @@
                     </Grid>
                 </ViewCell>
             </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

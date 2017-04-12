@@ -154,5 +154,54 @@ namespace APP_Commerce.Services
                 return null;
             }
         }
+
+        public async Task<List<Department>> GetDepartments()
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("http://dubistore.azurewebsites.net");
+                var url = "/api/Departments";
+                var response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var departments = JsonConvert.DeserializeObject<List<Department>>(result);
+                return departments.OrderBy(p => p.Name).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<List<City>> GetCities()
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("http://dubistore.azurewebsites.net");
+                var url = "/api/Cities";
+                var response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var cities = JsonConvert.DeserializeObject<List<City>>(result);
+                return cities.OrderBy(p => p.Name).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
     }
 }
