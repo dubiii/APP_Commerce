@@ -61,7 +61,7 @@ namespace APP_Commerce.ViewModels
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CustomerFilter"));
                     if (string.IsNullOrEmpty(customerFilter))
                     {
-                        LoadLocalCustomers();
+                        //LoadLocalCustomers();
                     }
 
 

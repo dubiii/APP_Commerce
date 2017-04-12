@@ -1,5 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="APP_Commerce.Pages.CustomerPage">
+             x:Class="APP_Commerce.Pages.CustomerPage"
+             BackgroundColor="{StaticResource MenuFontColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Clientes">
+    <StackLayout>
+        <SearchBar
+              Placeholder="Buscar..."
+              Text="{Binding CustomerFilter, Mode=TwoWay}"
+              SearchCommand="{Binding SearchCustomerCommand}">
+        </SearchBar>
+        <ListView
+            BackgroundColor="{StaticResource MainColor}"
+            SeparatorColor="White"
+            ItemTemplate="{StaticResource CustomerItemTemplate}"
+            ItemsSource="{Binding Customers}"
+            HasUnevenRows="True">
+        </ListView>
+    </StackLayout>
 </ContentPage>

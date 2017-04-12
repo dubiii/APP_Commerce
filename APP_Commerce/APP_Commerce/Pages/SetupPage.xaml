@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="APP_Commerce.Pages.SetupPage">
+             x:Class="APP_Commerce.Pages.SetupPage"
+             BackgroundColor="{StaticResource MenuFontColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Configuracion">
+    <Label Text="Configuracion"
+           TextColor="{StaticResource MainColor}"
+           HorizontalOptions="Center" 
+           VerticalOptions="Center"></Label>
 </ContentPage>
